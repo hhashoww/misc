@@ -5,10 +5,16 @@
 
 int main() {
     
+    bool bbb = (0x2 != 0);
+    printf("bool = %d\n", bbb);
+    return 0;
+    
     uint8_t x = 0;
     uint8_t y = 1;
-    printf("~x = %d\n", !x);
-    printf("~y = %d\n", !y);
+    printf("~x = %x\n", ~x);
+    printf("~y = %x\n", ~y);
+    printf("!x = %x\n", !x);
+    printf("!y = %x\n", !y);
     return 0;
 }
 

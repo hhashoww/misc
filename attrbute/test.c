@@ -1,24 +1,39 @@
 #include <stdio.h>
+#include <stdint.h>
 
-typedef struct xxx HCI_Tx_s;
-/*
-struct xxx {
-    unsigned char Type;
-    unsigned short int Opcode;
-    unsigned char DataLength;
-    unsigned char *data;
-} __attribute__ ((__packed__));  
-*/
+void first_proc(void) __attribute__((constructor(101)));
+void second_proc(void) __attribute__((constructor(102)));
 
-struct xxx {
-    unsigned char Type;
-    unsigned short int Opcode;
-    unsigned char DataLength;
-    unsigned char *data;
-};  
+void first_close(void) __attribute__((destructor(101)));
+void second_close(void) __attribute__((destructor(102)));
 
-int main() {
-    HCI_Tx_s data;
-    printf("%ld\n", sizeof(data));
-    return 0;
+
+int test() {
+	printf("test\n");
 }
+
+void first_proc(void) {
+
+	printf("first run !\n");
+}
+
+
+void second_proc(void) {
+	printf("second run !\n");
+}
+
+
+
+
+void first_close(void) {
+	printf("first close !\n");
+}
+
+
+void second_close(void) {
+	printf("second close !\n");
+}
+
+
+
+
